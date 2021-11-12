@@ -49,7 +49,7 @@ async def media_receive_handler(_, m: Message):
     
     
     await m.reply_text(
-        text="`{}`".format(f"Movie Name: {file_name}\n\n" f"Movie Link: {final_drop_url}\n\n" f"📥 Uploaded by : ██▓▒░⡷⠂𝚂𝙷𝙾𝚆𝙵𝙻𝙸𝚇⠐⢾░▒▓██\n\n"),
+        text=f"Movie Name: {file_name}\n\n" f"Movie Link: {final_drop_url}\n\n" f"📥 Uploaded by : ██▓▒░⡷⠂𝚂𝙷𝙾𝚆𝙵𝙻𝙸𝚇⠐⢾░▒▓██\n\n",
         quote=True,
         reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton('Join Our Group', url="https://telegram.me/tamilmoviereqst")]])
       
