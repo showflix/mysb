@@ -39,7 +39,7 @@ async def media_receive_handler(_, m: Message):
     response2= requests.get(DROP_URL+final_sb_url+"&alias="+file_name)
     final_drop_url=response2.json().get("shortenedUrl")
     await m.reply_text(
-        text="Movie Name :"+file_name+"\n"+"`{}`".format(final_drop_url),
+        text="`{}`".format(final_drop_url),
         quote=True,
-        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton('Open', url=final_drop_url)]])
+        
     )
