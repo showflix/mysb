@@ -42,7 +42,7 @@ async def media_receive_handler(_, m: Message):
     final_drop_url=response2.json().get("shortenedUrl")
     print(final_drop_url)
     await m.reply_text(
-        text="`{}`".format(final_drop_url),
+        text="Movie Name :"+file_name+"\n"+"`{}`".format(final_drop_url),
         quote=True,
         
     )
