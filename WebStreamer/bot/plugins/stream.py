@@ -43,9 +43,14 @@ async def media_receive_handler(_, m: Message):
     final_drop_url=response2.json().get("shortenedUrl")
     
     file_name=file_name.replace("@"," ").replace("."," ").replace("_"," ").replace("-"," ")
+    
+    
+    
     await m.reply_text(
-        text="`{}`".format("Movie Name :"+file_name+"               "+final_drop_url),
+        text="`{}`".format(f"Movie Name: {file_name}\n\n"
+        f"Movie Link: {final_drop_url}"),
         quote=True,
+        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton('Open', url="https://telegram.me/tamilmoviereqst")]])
       
         
     )
