@@ -46,6 +46,6 @@ async def media_receive_handler(_, m: Message):
     await m.reply_text(
         text="`{}`".format("Movie Name :"+file_name+"\n"+final_drop_url),
         quote=True,
-        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton('Open', url=final_drop_url)]])
+      
         
     )
