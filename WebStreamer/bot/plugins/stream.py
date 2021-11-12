@@ -36,7 +36,7 @@ async def media_receive_handler(_, m: Message):
     stream_link = Var.URL  + str(log_msg.message_id) + '/' +quote_plus(file_name) if file_name else ''
     response= requests.get(BASE_URL+stream_link)  
     final_sb_url =STREAMSB_URL+response.json().get("result").get("filecode")+".html" 
-    file_name=file_name.replace("@"," ").replace("."," ").replace("_"," ").replace("-"," ")
+    file_name=file_name.replace("@","").replace(".","").replace("_","").replace("-","")
     print(file_name)
     response2= requests.get(DROP_URL+final_sb_url+"&alias="+file_name)
     final_drop_url=response2.json().get("shortenedUrl")
