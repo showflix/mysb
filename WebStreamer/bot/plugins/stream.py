@@ -44,7 +44,7 @@ async def media_receive_handler(_, m: Message):
     
     file_name=file_name.replace("@"," ").replace("."," ").replace("_"," ").replace("-"," ")
     await m.reply_text(
-        text="`{}`".format("Movie Name :"+file_name+"\n"+final_drop_url),
+        text="`{}`".format("Movie Name :"+file_name+"               "+final_drop_url),
         quote=True,
       
         
