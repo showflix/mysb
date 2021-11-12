@@ -39,7 +39,7 @@ async def media_receive_handler(_, m: Message):
     
     file_name_api=file_name.replace("@","").replace(".","").replace("_","").replace("-","").replace(" ","").replace("x","")
     
-    response2= requests.get(DROP_URL+final_sb_url+"&alias="+file_name_api)
+    response2= requests.get(DROP_URL+final_sb_url+"&alias=file"+str(log_msg.message_id))
     
     final_drop_url=response2.json().get("shortenedUrl")
     
