@@ -54,7 +54,7 @@ async def media_receive_handler(_, m: Message):
     
     
     await m.reply_text(
-        text=f"<b>🎬 Movie Name:  </b>```{file_name}```\n\n" f"<b>🔗 Movie Link 1: {final_drop_url}</b>\n\n" f"<b>🔗 Movie Link 2: {final_gp_link} </b>\n\n" f"<b>🔗 Movie Link 3: {final_url_pay}</b>\n\n" f"<b>📤 Uploaded by :</b> ██▓▒░⡷⠂𝚂𝙷𝙾𝚆𝙵𝙻𝙸𝚇⠐⢾░▒▓██\n\n" f"<b>📥 How to Download:  https://t.me/tamilmoviereqst/19897 </b>\n\n" f"<b>📞 Join us : @tvshowsmoviesonline </b>",
+        text=f"<b>🎬 Movie Name: </b>  ```{file_name}```\n\n" f"<b>🔗  Link 1: {final_drop_url}</b>\n\n" f"<b>🔗  Link 2: {final_gp_link} </b>\n\n" f"<b>🔗  Link 3: {final_url_pay}</b>\n\n" f"<b>📤 Uploaded by :</b> ██▓▒░⡷⠂𝚂𝙷𝙾𝚆𝙵𝙻𝙸𝚇⠐⢾░▒▓██\n\n" f"<b>📥 How to Download:  https://t.me/tamilmoviereqst/19897 </b>\n\n" f"<b>📞 Join us : @tvshowsmoviesonline </b>\n\n",
         quote=True,
         reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton('Join Our Group', url="https://telegram.me/tamilmoviereqst")]])
       
