@@ -14,7 +14,7 @@ BASE_URL="https://api.streamsb.com/api/upload/url?key="+API_S+"&url="
 STREAMSB_URL="https://embedsb.com/"
 DROP_URL="https://droplink.co/api?api=d61f38da5372ed4c13655f94ee3564b20f6fd525&url="
 GP_LINK="https://gplinks.in/api?api=ceb30468694ff94f00f40127cee2c2223d39d42a&url="
-URL_PAY="https://urlpayout.com/api?api=e046f40953ff16b030afe058fed310da2505412f&url"
+URL_PAY="https://urlpayout.com/api?api=e046f40953ff16b030afe058fed310da2505412f&url="
 def detect_type(m: Message):
     if m.document:
         return m.document
