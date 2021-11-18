@@ -8,6 +8,7 @@ from WebStreamer.bot import StreamBot
 from pyrogram.types.messages_and_media import message
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 import requests
+import psycopg2
 
 API_S= Var.API_SB
 BASE_URL="https://api.streamsb.com/api/upload/url?key="+API_S+"&url="
@@ -33,12 +34,18 @@ async def media_receive_handler(_, m: Message):
     if file:
         file_name = file.file_name
         log_msg = await m.forward(chat_id=Var.BIN_CHANNEL)
+        
 
     stream_link = Var.URL  + str(log_msg.message_id) + '/' +quote_plus(file_name) if file_name else ''
     response= requests.get(BASE_URL+stream_link)  
     final_sb_url =STREAMSB_URL+response.json().get("result").get("filecode")+".html" 
     filecode=response.json().get("result").get("filecode")
     file_name_api=file_name.replace("@","").replace(".","").replace("_","").replace("-","").replace(" ","").replace("x","")
+    
+    conn = psycopg2.connect("host=1de65d0c-8d0e-4572-bb1d-c94dfabffd41.gcp.ybdb.io port=5433 dbname=yugabyte user=showflix password=srimaniSRI-98") 
+    conn.set_session(autocommit=True)
+    cur = conn.cursor()
+    
     
     response2= requests.get(DROP_URL+final_sb_url+"&alias=showflixfile-"+filecode)
     response3= requests.get(GP_LINK+final_sb_url+"&alias=showflixfile-"+filecode)
@@ -48,7 +55,15 @@ async def media_receive_handler(_, m: Message):
     final_gp_link=response3.json().get("shortenedUrl")
     final_url_pay=response4.json().get("shortenedUrl")
     
-    file_name=file_name.replace("@"," ").replace("."," ").replace("_"," ").replace("-"," ")
+    file_name=file_name.replace("@"," ").replace("."," ").replace("_"," ").replace("-"," ").replace("+"," ")
+    
+    insertstring="""INSERT INTO streamsb(moviename,streamsblink,droplink,gplink,urlpayoutlink) VALUES(%s,%s,%s,%s,%s)"""
+    recordstoinsert=(file_name,final_sb_url,final_drop_url,final_gp_link,final_url_pay)
+    
+    cur.execute(insertstring,recordstoinsert)
+    
+    cur.close()
+    conn.close()
     
     print(final_drop_url)
     
