@@ -4,3 +4,4 @@ pyrogram
 python-dotenv
 tgcrypto
 requests==2.26.0
+psycopg2
