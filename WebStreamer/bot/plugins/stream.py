@@ -40,6 +40,7 @@ async def media_receive_handler(_, m: Message):
     response= requests.get(BASE_URL+stream_link)  
     final_sb_url =STREAMSB_URL+response.json().get("result").get("filecode")+".html" 
     filecode=response.json().get("result").get("filecode")
+    appsblink=STREAMSB_URL+"play/"+filecode+".html"
     file_name_api=file_name.replace("@","").replace(".","").replace("_","").replace("-","").replace(" ","").replace("x","")
     
     conn = psycopg2.connect("host=1de65d0c-8d0e-4572-bb1d-c94dfabffd41.gcp.ybdb.io port=5433 dbname=yugabyte user=showflix password=srimaniSRI-98") 
@@ -69,7 +70,7 @@ async def media_receive_handler(_, m: Message):
     
     
     await m.reply_text(
-        text=f"<b>🎬 Movie Name: </b>  ```{file_name}```\n\n" f"<b>🔗  Link 1: {final_drop_url}</b>\n\n" f"<b>🔗  Link 2: {final_gp_link} </b>\n\n" f"<b>🔗  Link 3: {final_url_pay}</b>\n\n" f"<b>🔗  Link 4:{final_sb_url}</b>\n\n"  f"<b>📤 Uploaded by :</b> ██▓▒░⡷⠂𝚂𝙷𝙾𝚆𝙵𝙻𝙸𝚇⠐⢾░▒▓██\n\n" f"<b>📥 How to Download:  https://www.youtube.com/watch?v=fxu4w1ux3Eo&ab_channel=Showflix </b>\n\n" f"<b>📞 Join us : @showflix_movie , @showflix_group </b>\n\n",
+        text=f"<b>🎬 Movie Name: </b>  ```{file_name}```\n\n" f"<b>🔗  Link 1: {final_drop_url}</b>\n\n" f"<b>🔗  Link 2: {final_gp_link} </b>\n\n" f"<b>🔗  Link 3: {final_url_pay}</b>\n\n" f"<b>🔗  Link 4:{appsblink}</b>\n\n"  f"<b>📤 Uploaded by :</b> ██▓▒░⡷⠂𝚂𝙷𝙾𝚆𝙵𝙻𝙸𝚇⠐⢾░▒▓██\n\n" f"<b>📥 How to Download:  https://www.youtube.com/watch?v=fxu4w1ux3Eo&ab_channel=Showflix </b>\n\n" f"<b>📞 Join us : @showflix_movie , @showflix_group </b>\n\n",
         quote=True,
         reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton('Join Our Group', url="https://telegram.me/showflix_group")]])
       
