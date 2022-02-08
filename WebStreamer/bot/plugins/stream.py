@@ -50,11 +50,11 @@ async def media_receive_handler(_, m: Message):
     
     #response2= requests.get(DROP_URL+final_sb_url+"&alias=showflixfile-"+filecode)
     response3= requests.get(GP_LINK+final_sb_url+"&alias=showflixfile-"+filecode)
-    response4= requests.get(URL_PAY+final_sb_url+"&alias=showflixfile-"+filecode)
+   # response4= requests.get(URL_PAY+final_sb_url+"&alias=showflixfile-"+filecode)
     
     final_drop_url="error"
     final_gp_link=response3.json().get("shortenedUrl")
-    final_url_pay=response4.json().get("shortenedUrl")
+    final_url_pay="error"
     
     file_name=file_name.replace("@"," ").replace("."," ").replace("_"," ").replace("-"," ").replace("+"," ")
     
