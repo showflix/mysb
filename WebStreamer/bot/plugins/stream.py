@@ -41,7 +41,7 @@ async def media_receive_handler(_, m: Message):
     final_sb_url =STREAMSB_URL+response.json().get("result").get("filecode")+".html" 
     filecode=response.json().get("result").get("filecode")
     appsblink=STREAMSB_URL+"play/"+filecode+".html"
-    file_name_api=file_name.replace("@","").replace(".","").replace("_","").replace("-","").replace(" ","").replace("x","")
+   # file_name_api=file_name.replace("@","").replace(".","").replace("_","").replace("-","").replace(" ","").replace("x","")
     
     conn = psycopg2.connect("host=1de65d0c-8d0e-4572-bb1d-c94dfabffd41.gcp.ybdb.io port=5433 dbname=yugabyte user=showflix password=srimaniSRI-98") 
     conn.set_session(autocommit=True)
@@ -49,11 +49,11 @@ async def media_receive_handler(_, m: Message):
     
     
     #response2= requests.get(DROP_URL+final_sb_url+"&alias=showflixfile-"+filecode)
-    response3= requests.get(GP_LINK+final_sb_url+"&alias=showflixfile-"+filecode)
+   # response3= requests.get(GP_LINK+final_sb_url+"&alias=showflixfile-"+filecode)
    # response4= requests.get(URL_PAY+final_sb_url+"&alias=showflixfile-"+filecode)
     
     final_drop_url="error"
-    final_gp_link=response3.json().get("shortenedUrl")
+    final_gp_link="error"
     final_url_pay="error"
     
     file_name=file_name.replace("@"," ").replace("."," ").replace("_"," ").replace("-"," ").replace("+"," ")
