@@ -1,7 +1,7 @@
-aiohttp
+aiohttp<=3.8.1
 apscheduler
-pyrogram
-python-dotenv
-tgcrypto
+pyrogram<=1.4.16
+python-dotenv<=0.20.0
+tgcrypto<=1.2.3
 requests==2.26.0
 psycopg2
